@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head ng-app="myapp">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- angularjs link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  <!-- angular routing link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+  .charan {
+    height: 42px;
+  }
+</style>
+
+<body>
+  <a href="#!red">Red</a>
+  <a href="#!green">Green</a>
+  <a href="#!blue">Blue</a>
+
+
+
+  <ng-view></ng-view>
+
+</body>
+<script>
+  var app = angular.module('myapp', ['ngRoute']);
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when('/red', {
+        templateUrl: "persskil.ejs",
+        controller: "myCtrling"
+      });
+  });
+
+  app.controller('myCtrling', function ($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+  });
+
+
+</script>
+
+</html>
